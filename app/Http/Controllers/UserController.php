@@ -78,9 +78,6 @@ class UserController extends Controller
                 ->with('color', 'alert-danger');
         }
 
-        foreach(Book::where('user_id', auth()->user()->id)->get() as $book) {
-            $book->delete();
-        }
 
         User::destroy($id);
 

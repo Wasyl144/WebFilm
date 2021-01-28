@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\ImageControllerApi;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('profile', UserController::class)->except(['edit','store','create']);
+    Route::post('api/profileAvatar', [ImageControllerApi::class, 'uploadAvatar'])->name('avatar.upload');
+    Route::resource('films', FilmController::class);
+
 
 });

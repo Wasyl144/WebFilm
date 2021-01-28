@@ -16,7 +16,6 @@ class Film extends Migration
         Schema::create('films', function (Blueprint $table) {
            $table->id();
            $table->unsignedBigInteger('user_id');
-//           $table->unsignedBigInteger('rate_id');
            $table->string('title');
            $table->string('category')->default('all')->nullable();
            $table->string('body');
@@ -25,7 +24,6 @@ class Film extends Migration
 
            //Forgey keys
             $table->foreign('user_id')->references('id')->on('users');
-//            $table->foreign('rate_id')->references('id')->on('rates')->onDelete('cascade');
         });
     }
 
