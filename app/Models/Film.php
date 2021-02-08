@@ -10,4 +10,7 @@ use Plank\Mediable\Mediable;
 class Film extends Model
 {
     use HasFactory, SoftDeletes, Mediable;
+
+    protected $fillable = ['user_id', 'title', 'category', 'body'];
+
 }
