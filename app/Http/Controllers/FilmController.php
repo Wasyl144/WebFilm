@@ -18,7 +18,7 @@ class FilmController extends Controller
     public function index()
     {
         return view('films.index', [
-            'films' => Film::paginate(6),
+            'films' => Film::where('user_id',auth()->user()->id)->paginate(6),
         ]);
     }
 

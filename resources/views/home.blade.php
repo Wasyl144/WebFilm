@@ -25,55 +25,20 @@
     <section class="pt-5 pb-5">
         <div class="container">
             <div class="row">
+                @forelse($films as $film)
                 <div class="col-6 col-md-3 text-white-50">
                     <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
+                         src=" @if(!$film->hasMedia('film_'.$film->id))
+                         https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e
+                         @else {{'storage/'.$film->firstMedia('film_'.$film->id)->getDiskPath()}}" @endif
+                    ">
+                    <a class="text-white-50" href="{{route('films.show', $film->id)}}"><h2> {{$film->title}}</h2></a>
+                    <p class="text-h3">{{$film->body}} </p>
+                    <p class="text-right text-primary">created by <b>{{$film->nickname->nick}}</b></p>
                 </div>
-                <div class="col-6 col-md-3">
-                    <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
-                </div>
-                <div class="col-6 col-md-3">
-                    <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
-                </div>
-                <div class="col-6 col-md-3">
-                    <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
-                </div>
-                <div class="col-6 col-md-3">
-                    <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
-                </div>
-                <div class="col-6 col-md-3">
-                    <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
-                </div>
-                <div class="col-6 col-md-3">
-                    <img alt="image" class="img-fluid rounded mt-1 mb-2"
-                         src="https://images.unsplash.com/photo-1533720141687-c2f685704710?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=b66c52d6f252a5b02153a9e22d887a9e">
-                    <h2> Blueprints</h2>
-                    <p class="text-h3">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis
-                        mollis, est non commodo luctus. </p>
-                </div>
+                @empty
+                    <h1>No films actually</h1>
+                @endforelse
             </div>
         </div>
     </section>

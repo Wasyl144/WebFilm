@@ -13,4 +13,8 @@ class Film extends Model
 
     protected $fillable = ['user_id', 'title', 'category', 'body'];
 
+    public function nickname() {
+        return $this->hasOne(User::class, 'id', 'user_id')->select(['nick','id']);
+    }
+
 }
